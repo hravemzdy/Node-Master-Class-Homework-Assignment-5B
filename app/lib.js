@@ -214,6 +214,29 @@ lib.GetResults = function(period, inputData) {
     results.salaryResult = lib.payrollLib.SalaryResult(period, results.salaryAmount, results.fulltimeMinutes, results.workingMinutes);
     results.overtimeResult = lib.payrollLib.SalaryResult(period, results.salaryAmount, results.fulltimeMinutes, results.overtimeMinutes);
 
+    results.bonusAmount = inputData.bonusAmount;
+    results.bonusProcent100 = inputData.bonusProcent100;
+    // results.BonusResult = lib.payrollLib.BonusResult(results.BonusAmount, results.BonusFactor());
+
+    // decimal generalBasis = results.SalaryResult + results.BonusResult;
+    // results.TaxComputed = TaxingService.TaxComputedResult(monthPeriod, generalBasis);
+
+    // results.TaxAllowance = TaxingService.TaxPayerAllowance(monthPeriod);
+
+    // results.TaxAdvance = TaxingService.TaxAdvanceResult(monthPeriod, results.TaxComputed, results.TaxAllowance);
+
+    // results.HealthInsurance = HealthService.HealthInsuranceResult(monthPeriod, generalBasis);
+
+    // results.SocialInsurance = SocialService.SocialInsuranceResult(monthPeriod, generalBasis);
+
+    results.grossIncome = results.salaryResult + results.bonusResult;
+
+    // results.NetIncome = results.GrossIncome - results.TaxAdvance - results.HealthInsurance - results.SocialInsurance;
+
+    results.mealDeduction = inputData.mealDeduction;
+
+    // results.NetPayment = results.NetIncome - results.MealDeduction;
+
     return results;
 };
 
