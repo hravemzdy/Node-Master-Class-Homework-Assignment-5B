@@ -15,7 +15,7 @@ class RecordWeeksheet {
 
         this.inpFullHours = 0;
         this.inpRealHours = 0;
-        this.outWorkCoeff = 0;
+        this.outWorkRatio = 0;
         this.outWorkSheet = [];
     }
 
@@ -23,7 +23,7 @@ class RecordWeeksheet {
         this.inpFullHours = results.weeklyMinutes;
         this.inpRealHours = results.weeklyMinutes;
         this.outWorkSheet = lib.WeekSchedule(this.inpRealHours, this.cfgEmploy.DAYS_WORKING_WEEKLY);
-        this.outWorkCoeff = rounding.DvivideOrZero(this.inpRealHours / this.inpFullHours);
+        this.outWorkRatio = rounding.DvivideOrZero(this.inpRealHours / this.inpFullHours);
     }
 }
 
